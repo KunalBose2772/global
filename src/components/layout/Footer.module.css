@@ -1,0 +1,351 @@
+.footer {
+    position: relative;
+    background: #0f172a;
+    /* Dark sleek background */
+    color: #e2e8f0;
+    overflow: hidden;
+    font-family: var(--font-jakarta, sans-serif);
+}
+
+.glassOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.mainContent {
+    position: relative;
+    z-index: 2;
+}
+
+/* Top Section */
+.topSection {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+}
+
+.brandSection {
+    padding-right: 20px;
+}
+
+.logoContainer {
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.columnTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.titleIcon {
+    color: #6366f1;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.offsetLinks {
+    margin-top: 45px;
+    /* Visual alignment with title of other col */
+}
+
+.linkItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.linkItem:hover {
+    color: #6366f1;
+    transform: translateX(5px);
+}
+
+.iconBox {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Colors for Icons */
+.custom {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.ecommerce {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.wordpress {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+.responsive {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.maintenance {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.seo {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.social {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.content {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+}
+
+.ppc {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.digital {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.email {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.location {
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+}
+
+.phone {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.subAddress {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-left: 40px;
+    /* Indent to align with text above */
+}
+
+/* Four Boxes Section */
+.fourBoxesSection {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.boxGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.box {
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box:last-child {
+    border-right: none;
+}
+
+.statNumber {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.statLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
+.statsBox1 .statNumber {
+    color: #6366f1;
+}
+
+.statsBox2 .statNumber {
+    color: #10b981;
+}
+
+.boxTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 15px;
+}
+
+.socialLink {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+    background: #6366f1;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.paymentMethods {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.secureBadge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Bottom Section */
+.bottomSection {
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.bottomContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.legalLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.legalLinks a {
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+    color: #6366f1;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .boxGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .box {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .box:nth-child(2) {
+        border-right: none;
+    }
+
+    .statsBox1,
+    .statsBox2 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offsetLinks {
+        margin-top: 0;
+    }
+
+    .boxGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .box {
+        border-right: none;
+    }
+
+    .bottomContent {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .legalLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

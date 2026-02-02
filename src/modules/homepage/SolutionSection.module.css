@@ -1,0 +1,77 @@
+.section {
+    position: relative;
+    height: 300vh;
+    /* Scroll space for transition */
+    width: 100%;
+    z-index: 10;
+}
+
+.stickyWrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.contentContainer {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.headline {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.03em;
+}
+
+.highlight {
+    color: #3b82f6;
+    /* Brand blue fallback */
+}
+
+.explanation {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* Background Pattern (Optional subtle texture) */
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .section {
+        height: 200vh;
+        /* Shorter scroll on mobile */
+    }
+}

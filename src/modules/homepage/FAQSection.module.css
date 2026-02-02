@@ -1,0 +1,120 @@
+.section {
+    padding: 20px 0;
+    /* Consistent padding */
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.eyebrow {
+    font-size: 0.875rem;
+    color: #3b82f6;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.headline {
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Accordion Styles */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.itemOpen {
+    background: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.1);
+}
+
+.trigger {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+    transition: color 0.3s ease;
+}
+
+.trigger:hover {
+    color: #3b82f6;
+}
+
+.iconWrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.itemOpen .iconWrapper {
+    color: #3b82f6;
+    transform: rotate(180deg);
+}
+
+.content {
+    overflow: hidden;
+}
+
+.contentInner {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #475569;
+}
+
+@media (max-width: 768px) {
+    .trigger {
+        font-size: 1rem;
+        padding: 1.25rem;
+    }
+}

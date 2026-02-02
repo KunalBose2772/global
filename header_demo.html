@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Pop-out Header Demo</title>
+    
+    <!-- REQUIRED DEPENDENCIES -->
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CORE VARIABLES & GLOBAL STYLES
+           ========================================= */
+        :root {
+            --font-primary: 'Lexend', sans-serif;
+            --color-primary: #0d6efd;
+            --color-dark: #1a1a1a;
+            --header-height: 90px; /* Standard height of the navbar */
+            --logo-size: 140px;    /* Larger size for the pop-out effect */
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+        }
+
+        /* =========================================
+           HEADER STYLES
+           ========================================= */
+        #main-header {
+            height: var(--header-height);
+            transition: all 0.4s ease-in-out;
+            padding: 0;
+            z-index: 1030;
+            background-color: transparent; /* Transparent initially */
+        }
+
+        /* Scrolled State */
+        #main-header.scrolled {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        #main-header .container {
+            align-items: center;
+            position: relative;
+        }
+
+        /* =========================================
+           LOGO POP-OUT LOGIC
+           ========================================= */
+        .logo-wrapper {
+            position: relative;
+            height: var(--header-height);
+            width: var(--logo-size);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 1040;
+        }
+
+        .logo-container {
+            width: var(--logo-size);
+            height: var(--logo-size);
+            background-color: transparent; /* Transparent initially */
+            border-radius: 0 0 12px 12px;  /* Rounded bottom corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* When scrolled, the logo container becomes white to match the header */
+        #main-header.scrolled .logo-container {
+            background-color: #ffffff;
+            box-shadow: none;
+        }
+
+        #site-logo {
+            width: 85%;
+            height: auto;
+            /* Invert logo for dark backgrounds/transparent header if your logo is dark by default */
+            /* If your logo is already white, remove this filter */
+            /* filter: brightness(0) invert(1); */
+            transition: filter 0.4s;
+        }
+
+        /* =========================================
+           NAVIGATION LINKS
+           ========================================= */
+        .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Navigation colors on scroll */
+        #main-header.scrolled .nav-link {
+            color: var(--color-dark);
+        }
+
+        #main-header.scrolled .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+        }
+
+        /* =========================================
+           RIGHT SIDE BUTTONS & SOCIALS
+           ========================================= */
+        .btn-custom {
+            background-color: #ffffff;
+            color: var(--color-dark);
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 0.6rem 1.8rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #main-header.scrolled .btn-custom {
+            background-color: var(--color-dark);
+            color: #ffffff;
+        }
+
+        #main-header.scrolled .btn-custom:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .header-divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 0 1rem;
+            display: none;
+        }
+
+        .header-socials {
+            display: none; /* Hidden initially to keep it clean */
+            align-items: center;
+        }
+
+        /* Show divider and socials only when scrolled */
+        #main-header.scrolled .header-divider { display: block; }
+        #main-header.scrolled .header-socials { display: flex; }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-left: 0.25rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--color-dark);
+        }
+
+        #main-header.scrolled .social-link {
+            background-color: var(--color-dark);
+            color: #ffffff;
+        }
+
+        #main-header.scrolled .social-link:hover {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           MOBILE BURGER MENU
+           ========================================= */
+        .modern-hamburger {
+            background: transparent;
+            border: none;
+            padding: 0.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Burger turns dark on scroll */
+        #main-header.scrolled .hamburger-line {
+            background: #1a1a1a;
+        }
+
+        /* =========================================
+           DEMO CONTENT STYLES
+           ========================================= */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(45deg, #0d6efd, #0dcaf0); /* Fallback/Gradient */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Optional: Add a nice background image if available */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            /* opacity: 0.6; */
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); /* Dark overlay for text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .content-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="main-header" class="fixed-top transition-all">
+    <div class="container d-flex align-items-center position-relative">
+        
+        <!-- Logo Wrapper (Pop-out Effect) -->
+        <div class="logo-wrapper me-auto">
+            <a href="#" class="logo-container d-flex align-items-center justify-content-center">
+                <!-- Using a placeholder logo. Replace with your actual logo path. -->
+                <!-- The style "filter: brightness(0) invert(1)" takes a black logo and makes it white. -->
+                <!-- If using a colored logo, adjust CSS as needed. -->
+                <img src="https://via.placeholder.com/150x150/000000/FFFFFF?text=LOGO" alt="Logo" id="site-logo" class="img-fluid" style="border-radius: 50%;">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="d-none d-lg-block">
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                
+                 <!-- Dropdown Example -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Electronics</a></li>
+                        <li><a class="dropdown-item" href="#">Fashion</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">All Products</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Right Side: Socials & CTA -->
+        <div class="d-flex align-items-center d-none d-lg-flex">
+            
+            <div class="header-divider mx-3 d-none d-xl-block"></div>
+
+            <!-- Social Icons (Appear on Scroll) -->
+            <div class="header-socials me-4 align-items-center">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <a href="#" class="btn btn-custom">Get Started</a>
+        </div>
+        
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler d-lg-none modern-hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled p-0 m-0">
+            <li class="border-bottom"><a href="#" class="d-block py-3 px-2 text-decoration-none text-dark fw-bold">Home</a></li>
+            <li class="border-bottom"><a href="#" class="d-block py-3 px-2 text-decoration-none text-dark fw-bold">Products</a></li>
+            <li class="border-bottom"><a href="#" class="d-block py-3 px-2 text-decoration-none text-dark fw-bold">About Us</a></li>
+            <li class="border-bottom"><a href="#" class="d-block py-3 px-2 text-decoration-none text-dark fw-bold">Contact</a></li>
+        </ul>
+        <div class="mt-4">
+            <a href="#" class="btn btn-primary w-100 py-3 text-uppercase fw-bold">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<!-- =========================================
+     PAGE CONTENT (To enable scrolling)
+     ========================================= -->
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="display-3 fw-bold mb-4">Transparent Scroll Header</h1>
+        <p class="lead mb-5 opacity-75">Scroll down to see the header transform from transparent to white with a pop-out logo effect, just like you wanted!</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#content" class="btn btn-primary btn-lg rounded-pill px-5">Learn More</a>
+            <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-5">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- Dummy Content Section 1 -->
+<section id="content" class="content-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4">Integration Made Easy</h2>
+                <p class="lead text-muted mb-4">This comprehensive demo includes everything you need: HTML structure, semantic classes, and the precise CSS/JS interactions.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <ul class="list-unstyled mt-4">
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Zero external dependencies besides Bootstrap</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Fully responsive implementation</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Optimized smooth scrolling performance</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light p-5 rounded-4 text-center shadow-lg">
+                    <i class="fas fa-code fa-5x text-primary mb-4"></i>
+                    <h4>Clean Code Structure</h4>
+                    <p class="text-muted">Copy-paste ready for your new project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dummy Content Section 2 -->
+<section class="content-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Why This Design Works</h2>
+            <p class="text-muted w-75 mx-auto">A transparent header allows your hero imagery to shine, while the scrolled state ensures maximum readability as users navigate deeper into your content.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                    <div class="mb-3 text-primary"><i class="fas fa-magic fa-3x"></i></div>
+                    <h5 class="fw-bold">Visual Appeal</h5>
+                    <p class="text-muted">The pop-out logo creates a unique visual anchor that breaks the grid and grabs attention.</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                    <div class="mb-3 text-primary"><i class="fas fa-mobile-alt fa-3x"></i></div>
+                    <h5 class="fw-bold">Mobile First</h5>
+                    <p class="text-muted">Designed to look great on all devices with a modern off-canvas menu for smaller screens.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                    <div class="mb-3 text-primary"><i class="fas fa-rocket fa-3x"></i></div>
+                    <h5 class="fw-bold">Performant</h5>
+                    <p class="text-muted">Lightweight CSS and vanilla JavaScript ensure 60fps animations without lag.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dummy Content Section 3 (Long Text) -->
+<section class="content-section">
+    <div class="container">
+        <h2 class="mb-4">More Detailed Documentation</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <img src="https://via.placeholder.com/600x400/dddddd/555555?text=Image+Placeholder" alt="Demo" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-6">
+                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                 <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            </div>
+        </div>
+        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+    </div>
+</section>
+
+<!-- Footer Stub -->
+<footer class="bg-dark text-white py-5">
+    <div class="container text-center">
+        <p class="mb-0">&copy; 2026 Veltrivo Demo. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const header = document.getElementById('main-header');
+
+        function handleScroll() {
+            // Adds 'scrolled' class when page is scrolled more than 50px
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll);
+        
+        // Check initial load state
+        handleScroll();
+    });
+</script>
+
+</body>
+</html>

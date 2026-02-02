@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model menu_items {
+  id          Int     @id @default(autoincrement())
+  menu_id     Int
+  title       String  @db.VarChar(255)
+  url         String  @db.VarChar(255)
+  target      String? @db.VarChar(20)
+  parent_id   Int?    @default(0)
+  sort_order  Int?    @default(0)
+  is_active   Int?    @default(1)
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @updatedAt
+
+  @@index([menu_id])
+  @@index([parent_id])
+}
+
+model service_pages {
+  id               Int      @id @default(autoincrement())
+  page_title       String   @db.VarChar(255)
+  page_slug        String   @unique @db.VarChar(255)
+  is_active        Int?     @default(1)
+  // Add other fields as needed, keeping it minimal for menu fetching
+}

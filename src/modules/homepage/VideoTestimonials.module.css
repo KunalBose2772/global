@@ -1,0 +1,494 @@
+/* ENTERPRISE GRADE - VIDEO & TEXT TESTIMONIALS */
+
+.videoTestimonialsSection {
+    padding: 6rem 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 9999px;
+    color: #2563eb;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Carousel Wrapper */
+.carouselWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 4rem;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.navButton:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.navPrev {
+    left: 0;
+}
+
+.navNext {
+    right: 0;
+}
+
+/* Video Grid */
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Video Card */
+.videoCard {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    border: 1px solid #f1f5f9;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.videoCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+    border-color: #cbd5e1;
+}
+
+/* Video Thumbnail */
+.videoThumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    opacity: 0.9;
+}
+
+.videoCard:hover .thumbnail {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.playOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.videoCard:hover .playOverlay {
+    background: rgba(15, 23, 42, 0.1);
+}
+
+.playButton {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.videoCard:hover .playButton {
+    transform: scale(1.1);
+    background: #2563eb;
+    color: white;
+}
+
+.duration {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    padding: 0.35rem 0.75rem;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(4px);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Card Content */
+.cardContent {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+/* Quote */
+.quoteWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.quoteIcon {
+    color: #e2e8f0;
+    margin-bottom: 0.75rem;
+}
+
+.quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #334155;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+/* Client Info */
+.clientInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.clientName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.clientPosition {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.clientCompany {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Services */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.serviceTag {
+    padding: 0.25rem 0.75rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot:hover {
+    background: #2563eb;
+    transform: scale(1.2);
+}
+
+.activeDot {
+    background: #2563eb;
+    width: 30px;
+    border-radius: 99px;
+}
+
+/* --- MERGED TEXT TESTIMONIALS --- */
+.textSection {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.textHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.textGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.textCard {
+    background: #f8fafc;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.textCard:hover {
+    background: #ffffff;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    border-color: #cbd5e1;
+}
+
+.textQuoteIcon {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.textBody {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.textAuthor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.authorMeta div:first-child {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.authorMeta div:last-child {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+/* Video Modal */
+.videoModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+}
+
+.modalContent {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    background: #000;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.closeButton:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: rotate(90deg);
+}
+
+.video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: black;
+    display: block;
+}
+
+.modalInfo {
+    padding: 1.5rem 2rem;
+    background: #1e293b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modalInfo h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.modalInfo p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .videoGrid,
+    .textGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carouselWrapper {
+        padding: 0 2rem;
+    }
+
+    .textSection {
+        padding-top: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .videoTestimonialsSection {
+        padding: 4rem 0;
+    }
+
+    .videoGrid,
+    .textGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .carouselWrapper {
+        padding: 0 1rem;
+    }
+
+    .videoCard,
+    .textCard {
+        margin: 0 0.5rem;
+    }
+
+    .navButton {
+        display: none;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .videoModal {
+        padding: 1rem;
+    }
+}

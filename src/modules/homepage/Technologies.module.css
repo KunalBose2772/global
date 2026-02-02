@@ -1,0 +1,224 @@
+/* THE TECH ADVANTAGE - CUSTOMER CENTRIC */
+
+.techSection {
+    position: relative;
+    padding: 8rem 0;
+    background: #ffffff;
+    color: #0f172a;
+    overflow: hidden;
+}
+
+/* Background */
+.bgGrid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(#e2e8f0 1px, transparent 1px),
+        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    opacity: 0.4;
+    mask-image: linear-gradient(to bottom, transparent, black, transparent);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 5rem;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: #eff6ff;
+    border-radius: 99px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* VALUE GRID */
+.valueGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.valueCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.valueCard:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.1);
+    transform: translateY(-5px);
+}
+
+.iconBox {
+    width: 60px;
+    height: 60px;
+    background: #eff6ff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.cardDesc {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* TECHNOLOGIES TICKER */
+.techTickerWrapper {
+    position: relative;
+    padding: 4rem 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    overflow: hidden;
+}
+
+.tickerLabel {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+}
+
+.tickerTrack {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    /* Slower scroll for readability */
+}
+
+/* Tech Item with Real Logos */
+.techItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    min-width: 160px;
+    /* Ensure consistency */
+}
+
+.techItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e1;
+}
+
+.logoWrapper {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.techLogo {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    /* Start monochromatic for pro look */
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.techItem:hover .techLogo {
+    filter: grayscale(0%);
+    /* Color on hover */
+    opacity: 1;
+}
+
+.techName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Move only 1/3 since we have 3 sets */
+}
+
+/* Pause on hover */
+.tickerTrack:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .valueGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+    }
+}

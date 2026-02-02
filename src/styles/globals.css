@@ -1,0 +1,219 @@
+/**
+ * GLOBAL WEBIFY - ENTERPRISE DESIGN SYSTEM
+ * Brand: Bright • White • Premium • Enterprise SaaS
+ * Philosophy: SEO-first, Conversion-focused, Performance-optimized
+ */
+
+/* ============================================
+   DESIGN TOKENS - CSS VARIABLES (LOCKED)
+   ============================================ */
+:root {
+    /* Brand Colors - Professional Deep Blues */
+    --primary: #173463;
+    /* Deep Navy Blue - Main brand */
+    --primary-dark: #03115E;
+    /* Midnight Blue */
+    --primary-light: #3B82F6;
+    /* Brighter Blue for accents */
+    --secondary: #0E397E;
+    /* Royal Blue */
+    --accent: #F59E0B;
+    /* Gold/Amber for CTAs */
+
+    /* Background System (Light Mode Default) */
+    --bg-main: #FFFFFF;
+    --bg-soft: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-hover: #F1F5F9;
+    --bg-dark: #0F172A;
+    --bg-feature: #1E293B;
+
+    /* Text System (Light Mode Default) */
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+    --text-inverse: #FFFFFF;
+    --text-on-primary: #FFFFFF;
+
+    /* Brand Gradient - Deep Blues */
+    --brand-gradient: linear-gradient(135deg, #173463 0%, #0E397E 100%);
+    --be-gradient: linear-gradient(135deg, #173463 0%, #3B82F6 100%);
+    /* Blue Electric */
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(23, 52, 99, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(23, 52, 99, 0.12);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 20px rgba(23, 52, 99, 0.2);
+
+    /* Spacing Scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Typography Scale */
+    --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+}
+
+/* DARK MODE OVERRIDES */
+/* DARK MODE OVERRIDES REMOVED */
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    overflow-x: hidden;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: var(--font-size-5xl);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--font-size-4xl);
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: var(--font-size-3xl);
+}
+
+h4 {
+    font-size: var(--font-size-2xl);
+}
+
+h5 {
+    font-size: var(--font-size-xl);
+}
+
+h6 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.text-gradient {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --font-size-5xl: 2.25rem;
+        --font-size-4xl: 1.875rem;
+        --font-size-3xl: 1.5rem;
+    }
+
+    .container {
+        padding: 0 var(--space-md);
+    }
+}

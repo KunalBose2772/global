@@ -1,0 +1,108 @@
+/* IMPACT STATS - BARE METAL */
+
+.statsSection {
+    position: relative;
+    padding: 6rem 0;
+    color: #0f172a;
+    background: white;
+}
+
+/* Optional Separator Line */
+.statsSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Card - Clean & Typographic */
+.statCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align left */
+    text-align: left;
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid #3b82f6;
+    /* Accent line */
+    transition: all 0.3s ease;
+}
+
+.statCard:hover {
+    border-left-width: 6px;
+    /* Interactive width change */
+    padding-left: 2.5rem;
+    /* Push content to compensate or feel movement */
+    /* Alternative: stick to padding-left but increase border */
+    /* padding-left: 1.75rem; if we want to keep text stationary? 
+       No, let's just animate line thickness */
+}
+
+/* Content */
+.value {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Icon - Make it subtle background or watermark? 
+   Let's remove icons for a cleaner 'Bloomberg Terminal' look, 
+   or keep them very subtle. */
+.iconWrapper {
+    display: none;
+    /* Corporate minimalism */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .statCard {
+        border-left-width: 4px;
+        padding-left: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .value {
+        font-size: 4rem;
+    }
+}

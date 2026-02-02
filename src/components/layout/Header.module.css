@@ -1,0 +1,695 @@
+/* =========================================
+   CORE VARIABLES & GLOBAL STYLES MAPPED
+   ========================================= */
+.header {
+    height: 90px;
+    transition: all 0.4s ease-in-out;
+    padding: 0;
+    z-index: 1030;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* Scrolled State */
+.header.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* =========================================
+   LOGO POP-OUT LOGIC
+   ========================================= */
+.logoWrapper {
+    position: absolute;
+    left: 20px;
+    height: 90px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1040;
+}
+
+.logoContainer {
+    width: 140px;
+    height: 140px;
+    background-color: transparent;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* When scrolled, the logo container becomes white */
+.header.scrolled .logoContainer {
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.logo {
+    width: 85%;
+    height: auto;
+    transition: filter 0.4s;
+}
+
+/* =========================================
+   NAVIGATION LINKS
+   ========================================= */
+.nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+    height: 100%;
+    align-items: center;
+}
+
+.navItem {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0.5rem 0.5rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-jost), 'Jost', sans-serif;
+    letter-spacing: 0;
+}
+
+.navLink:hover {
+    color: #0d6efd;
+}
+
+/* Navigation colors on scroll */
+.header.scrolled .navLink {
+    color: #1a1a1a;
+}
+
+.header.scrolled .navLink:hover {
+    color: #0d6efd;
+    /* var(--color-primary) */
+}
+
+.chevron {
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.navItem:hover .chevron {
+    transform: rotate(180deg);
+}
+
+/* =========================================
+   FULL-WIDTH PREMIUM MEGA MENU
+   ========================================= */
+.megaMenuFullWidth {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    background: white;
+    box-shadow: 0 10px 40px rgba(23, 52, 99, 0.12);
+    border-top: 1px solid rgba(23, 52, 99, 0.08);
+    z-index: 999;
+    animation: megaMenuSlideDown 0.3s ease-out forwards;
+}
+
+@keyframes megaMenuSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.megaMenuInner {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.megaMenuColumns {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 0;
+    margin-bottom: 0;
+}
+
+.megaMenuImageCol {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    box-shadow: none;
+}
+
+.megaMenuBgWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, #173463 0%, #0e397e 50%, #1a5490 100%);
+}
+
+.megaMenuBgImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.megaMenuImageCol:hover .megaMenuBgImage {
+    transform: scale(1.08);
+    /* Zoom effect on hover */
+}
+
+.megaMenuOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.megaMenuCtaCard {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    box-shadow: none;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.megaMenuImageCol:hover .megaMenuCtaCard {
+    transform: translateY(-5px);
+}
+
+.ctaTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-jakarta), sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ctaDesc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.ctaBtn {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background: #28a745;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.ctaBtn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.megaMenuColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+/* New: Menu Items Grid Container */
+.megaMenuItemsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 1.5rem 2rem;
+    background: white;
+    max-width: 1200px;
+    margin-left: 0;
+}
+
+.megaMenuColumnTitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary);
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
+.megaMenuList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.megaMenuLink {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: white;
+    border: 1px solid transparent;
+    min-height: 60px;
+}
+
+.megaMenuLink::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--brand-gradient);
+    border-radius: 10px 0 0 10px;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.megaMenuLink:hover {
+    background: linear-gradient(135deg, rgba(23, 52, 99, 0.03) 0%, rgba(14, 57, 126, 0.02) 100%);
+    border-color: rgba(23, 52, 99, 0.1);
+    transform: translateX(4px);
+}
+
+.megaMenuLink:hover::before {
+    opacity: 1;
+}
+
+.megaMenuLinkIcon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(23, 52, 99, 0.08) 0%, rgba(14, 57, 126, 0.05) 100%);
+    color: var(--primary);
+    transition: all 0.3s;
+}
+
+.megaMenuLink:hover .megaMenuLinkIcon {
+    background: var(--brand-gradient);
+    color: white;
+    transform: scale(1.08) rotate(5deg);
+}
+
+.megaMenuLinkContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.megaMenuLinkTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.megaMenuLinkDesc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-jost), 'Jost', sans-serif;
+    line-height: 1.3;
+}
+
+.megaMenuLinkArrow {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.25s;
+    margin-top: 0.5rem;
+}
+
+.megaMenuLink:hover .megaMenuLinkArrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--primary);
+}
+
+.megaMenuFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0 0 0;
+    border-top: 1px solid rgba(23, 52, 99, 0.08);
+}
+
+.megaMenuFeatured h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
+.megaMenuFeatured p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-family: var(--font-jost), 'Jost', sans-serif;
+}
+
+.megaMenuCtaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: var(--brand-gradient);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 12px rgba(23, 52, 99, 0.2);
+}
+
+.megaMenuCtaBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(23, 52, 99, 0.3);
+}
+
+/* Responsive Mega Menu */
+@media (max-width: 1200px) {
+    .megaMenuColumns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .megaMenuFullWidth {
+        display: none;
+    }
+}
+
+/* =========================================
+   RIGHT SIDE BUTTONS & SOCIALS
+   ========================================= */
+.rightUtils {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.btnCustom {
+    background: var(--brand-gradient);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 12px 28px;
+    transition: all 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(23, 52, 99, 0.15);
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
+.btnCustom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 52, 99, 0.25), 0 0 20px rgba(23, 52, 99, 0.2);
+}
+
+.header.scrolled .btnCustom {
+    background: linear-gradient(135deg, #173463 0%, #0e397e 100%);
+    color: #ffffff;
+}
+
+.header.scrolled .btnCustom:hover {
+    background: linear-gradient(135deg, #0e397e 0%, #173463 100%);
+    transform: translateY(-2px);
+}
+
+.headerDivider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    display: none;
+}
+
+.headerSocials {
+    display: none;
+    /* Hidden initially */
+    align-items: center;
+    margin-right: 1.5rem;
+    gap: 0.25rem;
+}
+
+/* Show divider and socials only when scrolled */
+.header.scrolled .headerDivider {
+    display: block;
+}
+
+.header.scrolled .headerSocials {
+    display: flex;
+}
+
+.socialLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: #ffffff;
+    background: transparent;
+}
+
+/* Facebook brand color */
+.socialLink:nth-child(1) {
+    background-color: #1877f2;
+}
+
+/* LinkedIn brand color */
+.socialLink:nth-child(2) {
+    background-color: #0a66c2;
+}
+
+/* Instagram gradient */
+.socialLink:nth-child(3) {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.header.scrolled .socialLink:hover {
+    transform: translateY(-2px) scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* =========================================
+   MOBILE MENU
+   ========================================= */
+.mobileToggler {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: none;
+    /* Shown via media query */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburgerLine {
+    width: 28px;
+    height: 3px;
+    background: #1a1a1a;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .hamburgerLine {
+    background: #1a1a1a;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 991px) {
+    .nav {
+        display: none;
+    }
+
+    .rightUtils {
+        display: none;
+    }
+
+    .mobileToggler {
+        display: flex;
+    }
+
+    .logoWrapper {
+        margin-right: 0;
+        /* Center logo on mobile? Demo has me-auto, so strictly it pushes toggler to right */
+        /* me-auto means logo is left, toggler is right. */
+    }
+}
+
+/* Mobile Offcanvas Styles */
+.offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    z-index: 1050;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas.open {
+    transform: translateX(0);
+}
+
+.offcanvasHeader {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offcanvasTitle {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.btnClose {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.offcanvasBody {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.mobileList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobileListItem {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.mobileLink {
+    display: block;
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.mobileBtnWrapper {
+    margin-top: 1.5rem;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1045;
+    display: none;
+}
+
+.backdrop.open {
+    display: block;
+}

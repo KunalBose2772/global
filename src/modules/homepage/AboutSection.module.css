@@ -1,0 +1,296 @@
+/* AboutSection.module.css */
+
+.scrollSection {
+    position: relative;
+    height: 500vh;
+    /* Enough scroll distance for sequential flips */
+    width: 100%;
+    z-index: 10;
+}
+
+.stickyContainer {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: background-color 0.5s ease; handled by motion */
+}
+
+.contentWrapper {
+    max-width: 1400px;
+    width: 100%;
+    padding: 20px 2rem 0;
+    /* Removed bottom padding as requested */
+    /* Top padding to clear header and provide the "10px above" feel */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Start from top */
+    height: 100%;
+}
+
+/* Persistent Dot Pattern Overlay */
+.scrollSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Increased visibility: 3px dots, darker blue */
+    background-image: radial-gradient(rgba(37, 99, 235, 0.6) 3px, transparent 3px);
+    background-size: 40px 40px;
+    /* Larger spacing */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.headlineWrapper {
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Changed back to center */
+}
+
+/* --- HEADLINES --- */
+.headlineContainer {
+    position: relative;
+    text-align: center;
+    /* Changed back to center */
+    margin: 20px auto;
+    /* Reduced margin to 20px top/bottom */
+    height: auto;
+    /* Removed fixed height to fit content naturally */
+    min-height: 120px;
+    /* Minimum height to prevent total collapse */
+    width: 100%;
+    max-width: 900px;
+    /* Reduced max-width for better centering */
+    display: flex;
+    justify-content: center;
+    /* Changed back to center */
+    align-items: center;
+    flex-shrink: 0;
+    /* CRITICAL: Prevents collapse in flex column */
+}
+
+.eyebrow {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.mainHeadline {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.redHighlight {
+    color: #ef4444;
+}
+
+.blueHighlight {
+    color: #3b82f6;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.subHeadline {
+    font-size: 1.125rem;
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 0.9;
+    text-align: center;
+    /* Explicitly centered */
+    margin: 0 auto;
+}
+
+/* --- 3D FLIP STAGE --- */
+.cardsStage {
+    width: 100%;
+    perspective: 1200px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Scene Container */
+.flipScene {
+    background-color: transparent;
+    width: 100%;
+    height: 280px;
+    perspective: 1000px;
+}
+
+/* The moving inner container */
+.flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.1s;
+    transform-style: preserve-3d;
+}
+
+/* Shared Face Styles */
+.flipCardFront,
+.flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* FRONT FACE: Liability (White) */
+.flipCardFront {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+.flipCardFront .cardTitle {
+    color: #0f172a;
+}
+
+.flipCardFront .cardDesc {
+    color: #64748b;
+}
+
+/* BACK FACE: Asset (Glassy Dark) */
+.flipCardBack {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #ffffff;
+    transform: rotateX(180deg);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4);
+}
+
+.flipCardBack .cardTitle {
+    color: #ffffff;
+}
+
+.flipCardBack .cardDesc {
+    color: #94a3b8;
+}
+
+/* Typography on Cards */
+.cardTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.cardDesc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Icons */
+.iconLiability {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #fef2f2;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+.iconAsset {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: auto;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+
+/* --- CTA --- */
+.ctaContainer {
+    margin-top: 3rem;
+    z-index: 20;
+}
+
+.glowingBtn {
+    background: #3b82f6;
+    color: white;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.glowingBtn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.7);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 on tablet */
+    }
+
+    .headlineWrapper {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+        /* 1x4 on mobile */
+    }
+
+    .flipScene {
+        height: 200px;
+    }
+
+    .mainHeadline {
+        font-size: 2rem;
+    }
+
+    .scrollSection {
+        height: 500vh;
+        /* More room to scroll on mobile */
+    }
+}

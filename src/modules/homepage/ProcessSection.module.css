@@ -1,0 +1,249 @@
+/* Process Section - Bright & Enhanced */
+.section {
+    padding: 20px 0;
+    /* Consistent 20px padding rule */
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    text-align: left;
+    /* Header left aligned */
+    margin-bottom: 4rem;
+    /* Adjusted for tighter section padding */
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+}
+
+.eyebrow {
+    font-size: 0.875rem;
+    color: #3b82f6;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 1rem;
+    display: flex;
+    /* Flex for left align structure */
+    align-items: center;
+    gap: 1rem;
+}
+
+.headline {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+    /* Global Blue Wave Gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+/* Timeline Container */
+.timelineWrapper {
+    position: relative;
+    padding: 4rem 0;
+}
+
+/* The Horizontal Line */
+.backgroundLine {
+    position: absolute;
+    top: 50px;
+    /* Aligned with circles */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e2e8f0;
+    /* Light Gray */
+    z-index: 1;
+}
+
+.progressLine {
+    position: absolute;
+    top: 50px;
+    /* Aligned with circles */
+    left: 0;
+    height: 2px;
+    background: #3b82f6;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    /* Gradient line */
+    z-index: 2;
+    transform-origin: left;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Steps Grid */
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.stepItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Centered for clean look */
+}
+
+/* Step Marker (Circle) */
+.markerWrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+    /* No solid background needed if we layout carefully, but let's hide line */
+}
+
+/* White bg behind circle to hide line */
+.markerWrapper::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #f4f7fa;
+    /* Match approx gradient section part */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.markerCircle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid #cbd5e1;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.markerCircleActive {
+    background: #3b82f6;
+    border-color: #dbeafe;
+    /* Light blue ring */
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Number in circle */
+.stepNumber {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: none;
+}
+
+.markerCircleActive .stepNumber {
+    display: block;
+}
+
+/* Card Content - Enhanced */
+.card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    transition: all 0.4s ease;
+    opacity: 0.5;
+    transform: translateY(20px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.cardActive {
+    opacity: 1;
+    transform: translateY(0);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.05);
+    /* Premium soft shadow */
+}
+
+.cardActive:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
+}
+
+.stepTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.stepDesc {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .stepsGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-left: 2rem;
+        /* Make room for vertical line */
+    }
+
+    .backgroundLine,
+    .progressLine {
+        width: 3px;
+        height: 100%;
+        left: 3.5rem;
+        /* Align vertical line */
+        top: 0;
+    }
+
+    .stepItem {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .markerWrapper {
+        width: 60px;
+        /* Smaller wrapper on mobile */
+        height: 60px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+
+    .card {
+        text-align: left;
+        padding: 2rem;
+    }
+}
