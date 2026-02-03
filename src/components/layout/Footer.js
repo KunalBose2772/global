@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
     Settings, Code, ShoppingCart, FileCode, Smartphone, Monitor,
     Search, Share2, PenTool, Megaphone, TrendingUp,
@@ -25,7 +26,15 @@ export default function Footer() {
                             <div className={styles.brandSection}>
                                 <div className={styles.logoContainer}>
                                     <Link href="/" className={styles.logoLink}>
-                                        <img src="/images/logo.png" alt="Global Webify" className={styles.logo} />
+                                        <div style={{ position: 'relative', width: '150px', height: '40px' }}>
+                                            <Image
+                                                src="/images/logo.png"
+                                                alt="Global Webify"
+                                                fill
+                                                className={styles.logo}
+                                                style={{ objectFit: 'contain' }}
+                                            />
+                                        </div>
                                     </Link>
                                 </div>
                                 <p className={styles.description}>
@@ -162,7 +171,9 @@ export default function Footer() {
                                     <h5 className={styles.boxTitle}>Secure Payment Methods</h5>
                                     <div className={styles.paymentMethods}>
                                         <span title="Bank Transfer"><CreditCard size={24} /></span>
-                                        <span title="PayPal"><img src="/images/paypal-placeholder.png" alt="PP" style={{ height: 20, display: 'none' }} /> PayPal</span>
+                                        <span title="PayPal" style={{ display: 'none' }}>
+                                            <Image src="/images/paypal-placeholder.png" alt="PP" width={20} height={20} style={{ display: 'none' }} /> PayPal
+                                        </span>
                                         <span title="UPI"><Smartphone size={24} /></span>
                                         <span className={styles.secureBadge}><ShieldCheck size={16} /> SSL Secured</span>
                                     </div>

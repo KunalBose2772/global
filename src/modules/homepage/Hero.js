@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import styles from './Hero.module.css';
 
@@ -97,9 +98,9 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                     >
                         <div className={styles.testimonialAvatars}>
-                            <img src="/images/testimonial-1.png" alt="Client testimonial" />
-                            <img src="/images/testimonial-2.png" alt="Client testimonial" />
-                            <img src="/images/testimonial-3.png" alt="Client testimonial" />
+                            <Image src="/images/testimonial-1.png" alt="Client testimonial" width={40} height={40} className={styles.avatarImg} style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid white' }} />
+                            <Image src="/images/testimonial-2.png" alt="Client testimonial" width={40} height={40} className={styles.avatarImg} style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid white', marginLeft: '-12px' }} />
+                            <Image src="/images/testimonial-3.png" alt="Client testimonial" width={40} height={40} className={styles.avatarImg} style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid white', marginLeft: '-12px' }} />
                         </div>
                         <div className={styles.testimonialContent}>
                             <div className={styles.ratingStars}>
@@ -132,65 +133,65 @@ export default function Hero() {
                     <div className={styles.portfolioMarquee}>
                         {/* Column 1 - Reverse */}
                         <div className={`${styles.portfolioColumn} ${styles.reverse}`}>
-                            <img src="/images/portfolio-1.png" alt="Firayalal Public School Website" />
-                            <img src="/images/portfolio-2.png" alt="RPS Hospital Website" />
-                            <img src="/images/portfolio-3.png" alt="Health Point Ranchi Website" />
-                            <img src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" />
-                            <img src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" />
-                            <img src="/images/portfolio-6.png" alt="Elevate HR Website" />
-                            <img src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" />
-                            <img src="/images/portfolio-8.png" alt="AFICS India Website" />
+                            <Image src="/images/portfolio-1.png" alt="Firayalal Public School Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-2.png" alt="RPS Hospital Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-3.png" alt="Health Point Ranchi Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-6.png" alt="Elevate HR Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-8.png" alt="AFICS India Website" width={300} height={200} className={styles.portfolioImg} />
                             {/* Duplicate for seamless loop */}
-                            <img src="/images/portfolio-1.png" alt="Firayalal Public School Website" />
-                            <img src="/images/portfolio-2.png" alt="RPS Hospital Website" />
-                            <img src="/images/portfolio-3.png" alt="Health Point Ranchi Website" />
-                            <img src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" />
-                            <img src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" />
-                            <img src="/images/portfolio-6.png" alt="Elevate HR Website" />
-                            <img src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" />
-                            <img src="/images/portfolio-8.png" alt="AFICS India Website" />
+                            <Image src="/images/portfolio-1.png" alt="Firayalal Public School Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-2.png" alt="RPS Hospital Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-3.png" alt="Health Point Ranchi Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-6.png" alt="Elevate HR Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-8.png" alt="AFICS India Website" width={300} height={200} className={styles.portfolioImg} />
                         </div>
 
                         {/* Column 2 - Normal */}
                         <div className={styles.portfolioColumn}>
-                            <img src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" />
-                            <img src="/images/portfolio-10.png" alt="Artival Website" />
-                            <img src="/images/portfolio-11.png" alt="Holiday Horizons Website" />
-                            <img src="/images/portfolio-12.png" alt="Orbit Eyes Website" />
-                            <img src="/images/portfolio-1.png" alt="Firayalal Public School Website" />
-                            <img src="/images/portfolio-2.png" alt="RPS Hospital Website" />
-                            <img src="/images/portfolio-3.png" alt="Health Point Ranchi Website" />
-                            <img src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" />
+                            <Image src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-10.png" alt="Artival Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-11.png" alt="Holiday Horizons Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-12.png" alt="Orbit Eyes Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-1.png" alt="Firayalal Public School Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-2.png" alt="RPS Hospital Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-3.png" alt="Health Point Ranchi Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" width={300} height={200} className={styles.portfolioImg} />
                             {/* Duplicate for seamless loop */}
-                            <img src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" />
-                            <img src="/images/portfolio-10.png" alt="Artival Website" />
-                            <img src="/images/portfolio-11.png" alt="Holiday Horizons Website" />
-                            <img src="/images/portfolio-12.png" alt="Orbit Eyes Website" />
-                            <img src="/images/portfolio-1.png" alt="Firayalal Public School Website" />
-                            <img src="/images/portfolio-2.png" alt="RPS Hospital Website" />
-                            <img src="/images/portfolio-3.png" alt="Health Point Ranchi Website" />
-                            <img src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" />
+                            <Image src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-10.png" alt="Artival Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-11.png" alt="Holiday Horizons Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-12.png" alt="Orbit Eyes Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-1.png" alt="Firayalal Public School Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-2.png" alt="RPS Hospital Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-3.png" alt="Health Point Ranchi Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-4.png" alt="Dr Kumar Vishal Website" width={300} height={200} className={styles.portfolioImg} />
                         </div>
 
                         {/* Column 3 - Reverse */}
                         <div className={`${styles.portfolioColumn} ${styles.reverse}`}>
-                            <img src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" />
-                            <img src="/images/portfolio-6.png" alt="Elevate HR Website" />
-                            <img src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" />
-                            <img src="/images/portfolio-8.png" alt="AFICS India Website" />
-                            <img src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" />
-                            <img src="/images/portfolio-10.png" alt="Artival Website" />
-                            <img src="/images/portfolio-11.png" alt="Holiday Horizons Website" />
-                            <img src="/images/portfolio-12.png" alt="Orbit Eyes Website" />
+                            <Image src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-6.png" alt="Elevate HR Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-8.png" alt="AFICS India Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-10.png" alt="Artival Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-11.png" alt="Holiday Horizons Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-12.png" alt="Orbit Eyes Website" width={300} height={200} className={styles.portfolioImg} />
                             {/* Duplicate for seamless loop */}
-                            <img src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" />
-                            <img src="/images/portfolio-6.png" alt="Elevate HR Website" />
-                            <img src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" />
-                            <img src="/images/portfolio-8.png" alt="AFICS India Website" />
-                            <img src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" />
-                            <img src="/images/portfolio-10.png" alt="Artival Website" />
-                            <img src="/images/portfolio-11.png" alt="Holiday Horizons Website" />
-                            <img src="/images/portfolio-12.png" alt="Orbit Eyes Website" />
+                            <Image src="/images/portfolio-5.png" alt="Accugene Diagnostics Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-6.png" alt="Elevate HR Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-7.png" alt="Kaveri Restaurant Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-8.png" alt="AFICS India Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-9.png" alt="AM Nuts and Spices Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-10.png" alt="Artival Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-11.png" alt="Holiday Horizons Website" width={300} height={200} className={styles.portfolioImg} />
+                            <Image src="/images/portfolio-12.png" alt="Orbit Eyes Website" width={300} height={200} className={styles.portfolioImg} />
                         </div>
                     </div>
                 </motion.div>

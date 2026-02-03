@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
     Facebook, Linkedin, Instagram, X,
     Code, Palette, Megaphone, Server,
@@ -108,11 +109,16 @@ export default function Header() {
                     {/* Logo Wrapper */}
                     <div className={styles.logoWrapper}>
                         <Link href="/" className={styles.logoContainer}>
-                            <img
-                                src="/images/logo.png"
-                                alt="Global Webify Logo"
-                                className={styles.logo}
-                            />
+                            <div className={styles.logo} style={{ position: 'relative', width: '150px', height: '40px' }}>
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="Global Webify Logo"
+                                    fill
+                                    className={styles.logoImage}
+                                    style={{ objectFit: 'contain' }}
+                                    priority
+                                />
+                            </div>
                         </Link>
                     </div>
 
@@ -141,10 +147,12 @@ export default function Header() {
                                                             {/* Image Column with CTA */}
                                                             <div className={`${styles.megaMenuColumn} ${styles.megaMenuImageCol}`}>
                                                                 <div className={styles.megaMenuBgWrapper}>
-                                                                    <img
+                                                                    <Image
                                                                         src="/images/mega-menu-feature.jpg"
                                                                         alt="Featured"
+                                                                        fill
                                                                         className={styles.megaMenuBgImage}
+                                                                        style={{ objectFit: 'cover' }}
                                                                     />
                                                                     <div className={styles.megaMenuOverlay} />
                                                                 </div>
