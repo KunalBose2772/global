@@ -45,7 +45,7 @@ export default function TeamSection() {
                     <span className={styles.badge}>Our Team</span>
                     <h2 className={styles.title}>Meet the <span className={styles.gradient}>Experts</span></h2>
                     <p className={styles.subtitle}>
-                        The talented individuals behind Global Webify's success.
+                        The talented individuals behind Global Webify&apos;s success.
                     </p>
                 </motion.div>
 

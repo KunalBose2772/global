@@ -129,7 +129,7 @@ export default function VideoTestimonials() {
                         Hear From Our <span className={styles.gradient}>Happy Clients</span>
                     </h2>
                     <p className={styles.subtitle}>
-                        Don't just take our word for it. Watch real clients share their success stories and experiences working with Global Webify.
+                        Don&apos;t just take our word for it. Watch real clients share their success stories and experiences working with Global Webify.
                     </p>
                 </motion.div>
 
@@ -251,7 +251,7 @@ export default function VideoTestimonials() {
                                     ))}
                                 </div>
                                 <Quote size={24} className={styles.textQuoteIcon} />
-                                <p className={styles.textBody}>"{item.content}"</p>
+                                <p className={styles.textBody}>&quot;{item.content}&quot;</p>
                                 <div className={styles.textAuthor}>
                                     {/* Avatar placeholder if needed, for now just text */}
                                     <div className={styles.authorMeta}>

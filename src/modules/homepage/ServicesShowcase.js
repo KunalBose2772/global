@@ -124,7 +124,7 @@ export default function ServicesShowcase() {
                             <span className={styles.gradientText}>Massive Impact.</span>
                         </h2>
                         <p className={styles.subHeadline}>
-                            We don't just "do digital." We build the systems, products, and campaigns that power your business growth.
+                            We don&apos;t just &quot;do digital.&quot; We build the systems, products, and campaigns that power your business growth.
                         </p>
                     </motion.div>
                 </div>

@@ -9,10 +9,6 @@ export default function MenuAdminPage() {
     const [loading, setLoading] = useState(true);
     const [editingItem, setEditingItem] = useState(null); // null = list, {} = new, {id...} = edit
 
-    useEffect(() => {
-        fetchItems();
-    }, []);
-
     async function fetchItems() {
         setLoading(true);
         try {
@@ -26,6 +22,11 @@ export default function MenuAdminPage() {
         }
         setLoading(false);
     }
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fetchItems();
+    }, []);
 
     async function handleDelete(id) {
         if (!confirm('Are you sure you want to delete this item?')) return;

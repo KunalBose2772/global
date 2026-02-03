@@ -80,7 +80,7 @@ export default function CaseStudies() {
                         Real Results for <span className={styles.gradient}>Real Businesses</span>
                     </h2>
                     <p className={styles.subtitle}>
-                        Discover how we've helped businesses across industries achieve remarkable growth through strategic digital solutions. These case studies showcase our proven methodology and measurable results.
+                        Discover how we&apos;ve helped businesses across industries achieve remarkable growth through strategic digital solutions. These case studies showcase our proven methodology and measurable results.
                     </p>
                 </motion.div>
 
@@ -146,7 +146,7 @@ export default function CaseStudies() {
 
                                 {/* Testimonial */}
                                 <div className={styles.testimonial}>
-                                    <p className={styles.quote}>"{study.testimonial}"</p>
+                                    <p className={styles.quote}>&quot;{study.testimonial}&quot;</p>
                                     <div className={styles.author}>
                                         <div className={styles.authorName}>{study.author}</div>
                                         <div className={styles.authorPosition}>{study.position}</div>

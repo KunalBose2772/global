@@ -70,7 +70,7 @@ export default function Testimonials() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        We don't just build websites; we build lasting partnerships. Here's what our clients have to say about their experience working with us.
+                        We don&apos;t just build websites; we build lasting partnerships. Here&apos;s what our clients have to say about their experience working with us.
                     </motion.p>
                 </div>
 
@@ -92,7 +92,7 @@ export default function Testimonials() {
                                     ))}
                                 </div>
                                 <Quote size={32} className={styles.quoteIcon} />
-                                <p className={styles.quote}>"{item.content}"</p>
+                                <p className={styles.quote}>&quot;{item.content}&quot;</p>
                             </div>
 
                             <div className={styles.author}>

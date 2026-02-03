@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
                                     className={`${styles.card} ${t.id === testimonials[(activeIndex + 1) % testimonials.length].id ? styles.cardActive : ''}`}
                                 >
                                     <Quote size={32} className={styles.quoteIcon} />
-                                    <p className={styles.quoteText}>"{t.quote}"</p>
+                                    <p className={styles.quoteText}>&quot;{t.quote}&quot;</p>
 
                                     <div className={styles.authorBlock}>
                                         <div className={styles.authorName}>{t.author}</div>

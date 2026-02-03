@@ -53,7 +53,7 @@ export default function ProblemSection() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             <p className={styles.empathyText}>
-                                If this feels familiar, you're not alone. Most sites are built for vanity, not velocity.
+                                If this feels familiar, you&apos;re not alone. Most sites are built for vanity, not velocity.
                             </p>
                             <a href="/audit" className={styles.auditBtn}>
                                 Get Your Free Website Audit

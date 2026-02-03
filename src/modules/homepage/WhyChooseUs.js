@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
                         transition={{ delay: 0.1 }}
                     >
                         Working with an Agency <br />
-                        <span className={styles.highlightText}>Shouldn't Be a Headache.</span>
+                        <span className={styles.highlightText}>Shouldn&apos;t Be a Headache.</span>
                     </motion.h2>
                     <motion.p
                         className={styles.subheadline}
@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        You don't need another vendor who speaks in code. You need a partner who speaks in results.
+                        You don&apos;t need another vendor who speaks in code. You need a partner who speaks in results.
                         We exist to make your life easier and your business bigger.
                     </motion.p>
                 </div>
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
                                 </div>
 
                                 {/* The Struggle (Relatable) */}
-                                <p className={styles.scamText}>"{item.problem}"</p>
+                                <p className={styles.scamText}>&quot;{item.problem}&quot;</p>
 
                                 {/* The Solution (Empowering) */}
                                 <h3 className={styles.truthTitle}>{item.title}</h3>
